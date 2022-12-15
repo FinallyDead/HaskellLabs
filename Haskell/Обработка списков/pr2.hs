@@ -1,9 +1,5 @@
-module Main (main) where
-
-main :: IO ()
-main = print $ getButLast "abcde"
-
-getButLast :: [a] -> a
-getButLast a 
-    |length a < 2 = error "Not Enough Elements"
-    |otherwise = last $ init a
+myButLast :: [a] -> a
+myButLast [] = error "List empty!"
+myButLast [x] = error "List contains only one"
+myButLast [x,_] = x
+myButLast (_:xs) = myButLast xs
